@@ -1,7 +1,7 @@
 # 9Store-ecommerce
 Loja Virtual
 
-#Equipe
-Diego Veras
-Moises Rander
-Ranna Pontes
+# Equipe
+- Diego Veras
+- Moises Rander
+- Ranna Pontes
