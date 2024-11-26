@@ -14,7 +14,8 @@ export default {
         foreground: "var(--foreground)",
         gray: {
           900: "#1a202c",
-          800: "#2d3748", // Exemplo de cor personalizada
+          800: "#2d3748",
+          700: "#737373",
         },
       },
       borderRadius: {
