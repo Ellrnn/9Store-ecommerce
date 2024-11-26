@@ -23,25 +23,7 @@ export default function SideBarProductCard({
       </div>
 
       <div className="flex gap-4 w-full justify-between">
-        <div className="flex flex-col gap-1.5">
-          <div className="h-[19px] border border-gray-300 rounded-md border-solid py-2 bg-white flex items-center justify-center gap-[1px]">
-            <button
-              onClick={() => cartStore.removeProduct(product)}
-              className="border-none bg-transparent mx-[6px] hover:cursor-pointer"
-            >
-              -
-            </button>
-            <div className="mr-2 border-l border-l-gray-300 h-full p-1 pl-0 pr-0" />
-            <span>{quantity}</span>
-            <div className="ml-2 border-l border-l-gray-300 h-full p-1 pl-0 pr-0" />
-            <button
-              onClick={() => cartStore.addProduct(product)}
-              className="border-none bg-transparent mx-[6px] hover:cursor-pointer"
-            >
-              +
-            </button>
-          </div>
-
+        <div className="flex flex-col gap-1.5 items-center">
           <div className="flex gap-2 items-center justify-between">
             <span className="text-black font-bold text-[14px]">
               R${product.price}
@@ -50,7 +32,24 @@ export default function SideBarProductCard({
               className="p-1 pr-2 pl-2 rounded-full border-0 text-white bg-white text-[8px] font-[18] absolute right-[-8px] top-[-8px] hover:cursor-pointer"
               onClick={() => cartStore.deleteProduct(product)}
             >
-              <Icons.crossCircled color="black" />
+              <Icons.trash color="black" className="size-3" />
+            </button>
+          </div>
+          <div className="h-[16px] border border-gray-300 rounded-md border-solid py-2 bg-white flex items-center justify-center gap-[1px]">
+            <button
+              onClick={() => cartStore.removeProduct(product)}
+              className="border-none bg-transparent mx-[6px] hover:cursor-pointer"
+            >
+              -
+            </button>
+            <div className="mr-2 border-l border-l-gray-300 h-full p-1 pl-0 pr-0" />
+            <span className="text-xs">{quantity}</span>
+            <div className="ml-2 border-l border-l-gray-300 h-full p-1 pl-0 pr-0" />
+            <button
+              onClick={() => cartStore.addProduct(product)}
+              className="border-none bg-transparent mx-[6px] hover:cursor-pointer"
+            >
+              +
             </button>
           </div>
         </div>

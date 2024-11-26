@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { ShoppingCart } from "../icons/ShoppingCart";
 import { useCartStore } from "@/stores/CartStore";
 
@@ -13,7 +14,14 @@ export function Header({ onCartClick }: HeaderProps) {
       <div>
         <span className="text-white text-4xl font-semibold leading-5">
           9Store{" "}
-          <span className="text-white text-xl font-light leading-5"></span>
+          <span className="text-white text-xl font-light leading-5">
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </span>
         </span>
       </div>
       <button

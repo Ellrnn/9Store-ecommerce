@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Product } from "@/services/productService";
 import Image from "next/image";
+import { Icons } from "./ui/icons";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 export type ProductCardProps = Product & {
   onAddToCart: (product: Product) => void;
@@ -11,30 +13,27 @@ export default function ProductCard({
   ...product
 }: ProductCardProps) {
   return (
-    <div className="w-[218px] min-h-[285px] max-h-[330px] rounded-lg bg-white shadow-md flex flex-col justify-between">
-      <div className="overflow-hidden text-ellipsis p-4">
+    <div className="w-[218px] min-h-[285px] max-h-[330px] rounded-lg bg-white shadow-md flex flex-col justify-between gap-4">
+      <AspectRatio ratio={1} className="bg-muted">
         <Image
-          className="w-[100%]"
-          src={{
-            src: product.photo,
-            height: 138,
-            width: 200,
-          }}
-          alt="Product image"
+          src={product.photo}
+          alt={product.description}
+          fill
+          className="h-full w-full rounded-md object-scale-down"
         />
-      </div>
-      <div className="flex gap-2 w-full items-center justify-between mt-4">
-        <span className="text-gray-800 text-base font-normal">
+      </AspectRatio>
+      <div className="flex gap-2 w-full items-center justify-between py-1 px-4">
+        <span className="text-gray-800 text-base font-normal ">
           {product.name}
         </span>
-        <div className="bg-transparent rounded-md p-1.5">
+        <div className="bg-transparent rounded-md">
           <span className="text-neutral-900 font-bold text-sm">
             R$ {product.price}
           </span>
         </div>
       </div>
-      <div>
-        <span className="mt-2 text-gray-800 text-[10px] font-light">
+      <div className="px-4">
+        <span className="text-gray-800 text-[10px] font-light">
           {product.description}
         </span>
       </div>
@@ -44,6 +43,7 @@ export default function ProductCard({
         onClick={() => onAddToCart(product)}
       >
         ADICIONAR
+        <Icons.shoppingCartWhite />
       </Button>
     </div>
   );
