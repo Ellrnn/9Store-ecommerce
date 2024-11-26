@@ -8,8 +8,14 @@ export type Product = {
   price: number;
 };
 
-async function getProducts() {
-  const response = await api.get<Product[]>("/products");
+type GetProductsParams = {
+  category?: string;
+};
+
+async function getProducts(params: GetProductsParams) {
+  const response = await api.get<Product[]>("/products", {
+    params,
+  });
 
   return response.data;
 }
