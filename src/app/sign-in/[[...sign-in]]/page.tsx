@@ -13,11 +13,33 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Icons } from "@/components/ui/icons";
+import { useAuth } from "@clerk/nextjs";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 export default function SignInPage() {
+  // const { isSignedIn } = useAuth();
+
+  // const searchParams = useSearchParams();
+  // const redirectUrl = searchParams.get("redirect_url");
+  // const router = useRouter();
+
+  // useEffect(() => {
+  //   console.log({
+  //     isSignedIn,
+  //     redirectUrl,
+  //   });
+
+  //   if (isSignedIn && redirectUrl) {
+  //     console.log("caiu aq", redirectUrl.replace(window.origin, ""));
+
+  //     router.replace(redirectUrl.replace(window.origin, ""));
+  //   }
+  // }, [isSignedIn, redirectUrl, router]);
+
   return (
-    <div className="grid w-full grow items-center px-4 sm:justify-center">
-      <SignIn.Root>
+    <div className="grid w-full grow items-center mt-40 px-4 sm:justify-center">
+      <SignIn.Root path="/sign-in">
         <Clerk.Loading>
           {(isGlobalLoading) => (
             <>
